@@ -1,4 +1,4 @@
-# AOSP Device Tree for the Redmi 13R 5G/13C 5G/POCO M6 5G
+# AOSP Device Tree for the Redmi 15R 5G/15C 5G/POCO C85 5G
 
 ```
 #
