@@ -18,7 +18,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 # Inherit common MediaTek IMS
 $(call inherit-product, vendor/mediatek/ims/ims.mk)
 
-DEVICE_PATH := device/xiaomi/air
+DEVICE_PATH := device/xiaomi/tornado
 
 # Linker config
 PRODUCT_VENDOR_LINKER_CONFIG_FRAGMENTS += \
@@ -84,7 +84,7 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml
 
 # Boot animation
-TARGET_SCREEN_HEIGHT := 1600
+TARGET_SCREEN_HEIGHT := 1640
 TARGET_SCREEN_WIDTH := 720
 
 # Bluetooth
@@ -224,11 +224,11 @@ PRODUCT_COPY_FILES += \
 
 # Overlays
 PRODUCT_PACKAGES += \
-    FrameworksResOverlayAir \
-    SettingsResOverlayAir \
-    SystemUIOverlayAir \
-    TetheringConfigOverlayAir \
-    WifiOverlayAir \
+    FrameworksResOverlayTornado \
+    SettingsResOverlayTornado \
+    SystemUIOverlayTornado \
+    TetheringConfigOverlayTornado \
+    WifiOverlayTornado \
     NcmTetheringOverlay
 
 PRODUCT_PACKAGE_OVERLAYS += \
@@ -378,4 +378,4 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/xiaomi/air/air-vendor.mk)
+$(call inherit-product, vendor/xiaomi/tornado/tornado-vendor.mk)

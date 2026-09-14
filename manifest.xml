@@ -78,6 +78,11 @@
         <fqname>IRadioData/slot2</fqname>
     </hal>
     <hal format="aidl">
+        <name>vendor.mediatek.hardware.mtkradioex.data</name>
+        <fqname>IMtkRadioExData/slot1</fqname>
+        <fqname>IMtkRadioExData/slot2</fqname>
+    </hal>
+    <hal format="aidl">
         <name>vendor.mediatek.hardware.mtkradioex.ims</name>
         <fqname>IMtkRadioExIms/slot1</fqname>
         <fqname>IMtkRadioExIms/slot2</fqname>

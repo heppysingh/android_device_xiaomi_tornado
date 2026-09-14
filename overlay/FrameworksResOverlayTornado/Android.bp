@@ -5,9 +5,8 @@
 //
 
 runtime_resource_overlay {
-    name: "SystemUIOverlayAir",
+    name: "FrameworksResOverlayTornado",
     sdk_version: "current",
     resource_dirs: ["res"],
     vendor: true,
 }
-

@@ -11,6 +11,7 @@
 /vendor/lib(64)?/libanc_mfnr\.so                          u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libanc_night\.so                         u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libanc_single_bokeh\.so                  u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libanc_single_bokeh_rear\.so             u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libarcsoft_beautyshot\.so                u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libarcsoft_dualcam_refocus_image\.so     u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libarcsoft_dualcam_refocus\.so           u:object_r:same_process_hal_file:s0

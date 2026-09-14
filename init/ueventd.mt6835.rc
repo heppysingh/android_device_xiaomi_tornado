@@ -51,7 +51,6 @@
 /dev/gps_emi              0660   gps        gps
 /dev/gps_pwr              0660   gps        gps
 /dev/fw_log_gps           0660   gps        gps
-/dev/gpsmdl-mpets         0600   gps        gps
 # ANT
 /dev/stpant               0660   system     system
 
@@ -81,6 +80,11 @@
 /dev/mobicore-user        0666   system     system
 /dev/t-base-tui           0666   system     system
 
+#import uevent.fingerprint.rc
+/dev/spidev1.0 0660 system system
+/dev/spidev0.0 0660 system system
+/dev/silead_fp 0660 system system
+
 # teeperf driver
 /dev/teeperf              0666   system     system
 
@@ -100,9 +104,6 @@
 
 # MDDP node
 /dev/mddp                 0660   system     system
-
-#silead fingerprint
-/dev/silead_fp 0660 system system
 
 # cpu hotplug
 /sys/devices/system/cpu/cpu* cpufreq/sugov_ext/down_rate_limit_us 0664 system system

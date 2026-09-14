@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
  * Copyright (C) 2024 The LineageOS Project
@@ -5,14 +6,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 -->
+<!-- Pixel specific wifi overlays -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.networkstack.tethering.gold"
+    package="com.android.wifi.resources.tornado"
     android:versionCode="1"
     android:versionName="1.0">
     <application android:hasCode="false" />
     <overlay
-      android:targetPackage="com.android.networkstack.tethering"
-      android:targetName="TetheringConfig"
+      android:targetPackage="com.android.wifi.resources"
+      android:targetName="WifiCustomization"
       android:isStatic="true"
       android:priority="0"/>
 </manifest>

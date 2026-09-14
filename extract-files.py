@@ -19,7 +19,7 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
-    'device/xiaomi/air',
+    'device/xiaomi/tornado',
     'hardware/mediatek',
     'hardware/mediatek/libaedv',
     'hardware/mediatek/libmtkperf_client',
@@ -75,7 +75,7 @@ blob_fixups: blob_fixups_user_type = {
     ): blob_fixup()
         .replace_needed('libsensorndkbridge.so', 'android.hardware.sensors@1.0-convert-shared.so')
         .replace_needed('libmnl.so', 'libmnl-v33.so'),
-    'vendor/lib64/libmnl.so': blob_fixup()
+    'vendor/lib64/mt6835/libmnl.so': blob_fixup()
         .add_needed('libcutils.so'),
     'vendor/lib/libvcodec_oal.so': blob_fixup()
         .clear_symbol_version('__aeabi_memcpy')
@@ -122,7 +122,7 @@ blob_fixups: blob_fixups_user_type = {
 }  # fmt: skip
 
 module = ExtractUtilsModule(
-    'air',
+    'tornado',
     'xiaomi',
     blob_fixups=blob_fixups,
     lib_fixups=lib_fixups,

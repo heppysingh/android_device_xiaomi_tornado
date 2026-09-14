@@ -1,5 +1,4 @@
 import /vendor/etc/init/hw/init.mtkgki.rc
-import /vendor/etc/init/init.charge_logger.rc
 
 # MTK project .rc configure
 
@@ -45,8 +44,14 @@ on post-fs-data
     chmod 0660 /dev/BU64745GWZAF
     chown system camera /dev/BU64745GWZAF
 
-#Add for tp touchpad
-    mkdir /data/vendor/touchpad 0660 system system
+# P15 code add mfnr gpu bin params start
+    mkdir /data/vendor/camera/ 0777 system camera
+    mkdir /data/vendor/camera/mfnr 0777 system camera
+# P15 code add mfnr gpu bin params end
+
+# MIUI ADD: Performance_BoostFramework
+    chown system system /sys/module/perf_helper/mimd/mimdtrigger
+# END Performance_BoostFramework
 
 #SMB
     chown system system /proc/smb/ScreenComm
@@ -55,10 +60,6 @@ on post-fs-data
     chmod 0660 /dev/spm
     chown system system /dev/spm
 
-
-# MIUI ADD: Performance_BoostFramework
-    chown system system /sys/module/perf_helper/mimd/mimdtrigger
-# END Performance_BoostFramework
 
 on init
     # Refer to http://source.android.com/devices/tech/storage/index.html
@@ -81,7 +82,7 @@ on property:sys.boot_completed=1
     write /sys/kernel/tracing/instances/mmstat/buffer_size_kb 16
     write /sys/kernel/tracing/instances/mmstat/events/mmstat/enable 1
     write /sys/kernel/tracing/instances/mmstat/tracing_on 1
-    write /proc/sys/vm/swappiness 150
+    write /proc/sys/vm/watermark_scale_factor 60
 
 on init
     insmod /vendor/lib/modules/millet_core.ko
@@ -92,9 +93,29 @@ on init
     insmod /vendor/lib/modules/millet_sig.ko
     insmod /vendor/lib/modules/millet_oem_cgroup.ko
 
+#+ExtR HTH-404417 add by longcheer, 20240512, support single sim
+on property:ro.boot.multisim=ss
+    #setprop ro.boot.product.hardware.sku ${ro.boot.multisim}
+    setprop persist.radio.multisim.config ${ro.boot.multisim}
+    setprop ro.boot.opt_sim_count 1
+    setprop ro.vendor.miui.singlesim 1
+    setprop ro.telephony.sim.count 1
+    setprop ro.miui.singlesim 1
+    setprop telephony.active_modems.max_count 1
+on property:ro.boot.multisim=dsds
+    #setprop ro.boot.product.hardware.sku ${ro.boot.multisim}
+    setprop persist.radio.multisim.config ${ro.boot.multisim}
+    setprop ro.boot.opt_sim_count 2
+    setprop ro.telephony.sim.count 2
+    setprop ro.vendor.miui.singlesim 0
+    setprop ro.miui.singlesim 0
+    setprop telephony.active_modems.max_count 2
+#-ExtR HTH-404417 add by longcheer, 20240512, support single sim
+
 # for CID
 on property:vendor.audio.usb_cctoggle=1
-    write /sys/class/power_supply/battery/audio_on 1
-
+    write /sys/class/lc_charger/audio_on 1
+    write /dev/kmsg "enable audio_on"
 on property:vendor.audio.usb_cctoggle=0
-    write /sys/class/power_supply/battery/audio_on 0
+    write /sys/class/lc_charger/audio_on 0
+    write /dev/kmsg "disable audio_on"
