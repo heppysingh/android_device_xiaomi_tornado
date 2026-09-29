@@ -23,4 +23,4 @@ fi
 
 # Main execution
 exec ${RECOVERY_CONSOLE_PATH} \
-    --exec "${DROIDSPACES_BINARY_PATH} -i ${ROOTFS_PATH} -n \"${CONTAINER_NAME}\" -h \"${CONTAINER_HOSTNAME}\" ${DS_FLAGS} start"
+    --exec "${DROIDSPACES_BINARY_PATH} -r ${ROOTFS_PATH} -n \"${CONTAINER_NAME}\" -h \"${CONTAINER_HOSTNAME}\" ${DS_FLAGS} start"
