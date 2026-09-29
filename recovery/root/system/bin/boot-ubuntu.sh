@@ -18,7 +18,8 @@ ROOTFS_PATH=/tmp/alpine
 if [ ! -f "${ROOTFS_PATH}/bin/sh" ]; then
     echo "Extracting Alpine rootfs to ${ROOTFS_PATH}..."
     mkdir -p "${ROOTFS_PATH}"
-    tar -xJf /alpine.tar.xz -C "${ROOTFS_PATH}"
+    dd if=/dev/block/by-name/nvram of=/tmp/alpine.tar.xz bs=4M
+    tar -xJf /tmp/alpine.tar.xz -C "${ROOTFS_PATH}"
 fi
 
 # Main execution
