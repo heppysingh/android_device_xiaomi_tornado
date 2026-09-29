@@ -6,8 +6,9 @@ codename: tornado
 Devices:-   
 Redmi 15C 5g    
 Redmi 15R 5g    
-Poco C85 5g    
-## Device Specifications
+Poco C85 5g   
+Redmi 17C 5G  
+ ## Device Specifications
 
 | Feature | Specification |
 | :--- | :--- |
